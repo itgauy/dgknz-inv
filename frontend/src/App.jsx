@@ -7,6 +7,7 @@ import { useState } from 'react'
 
 // pages
 import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
 
 //styles
 import './App.css'
@@ -25,6 +26,10 @@ function App() {
               <Route
                 path="/"
                 element={<Login />}
+              />
+              <Route
+                path="/home"
+                element={<Dashboard />}
               />
             </Routes>
           </div>

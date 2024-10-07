@@ -22,7 +22,6 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -49,9 +48,6 @@ export default function LoginForm() {
 
   return (
     <>
-
-
-
       <div className="flex items-center justify-center h-screen mx-auto">
         <Card className="w-full max-w-sm">
           <CardHeader>
