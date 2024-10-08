@@ -1,42 +1,43 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 
-//components
-// import Navbar from './components/Navbar'
-// import SideBar from './components/Sidebar'
+// layout
+import Navbar from './layouts/Navbar'
+import Sidebar from './layouts/Sidebar'
 
 // pages
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
+import Orders from './pages/Orders'
 
 //styles
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function AppContent() {
+  const location = useLocation();
+  const shouldShowLayout = location.pathname !== '/';
 
   return (
-    <>
-      <div className="App">
-        <BrowserRouter>
-          {/* <Navbar />
-          <SideBar /> */}
-          <div className="pages">
-            <Routes>
-              <Route
-                path="/"
-                element={<Login />}
-              />
-              <Route
-                path="/home"
-                element={<Dashboard />}
-              />
-            </Routes>
-          </div>
-          {/* <Footer /> */}
-        </BrowserRouter>
+    <div className="flex">
+      {shouldShowLayout && <Sidebar />}
+      <div className="flex-grow">
+        {shouldShowLayout && <Navbar />}
+        <div className="flex-grow p-4">
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Dashboard />} />
+            <Route path="/orders" element={<Orders />} />
+          </Routes>
+        </div>
       </div>
-    </>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   )
 }
 
