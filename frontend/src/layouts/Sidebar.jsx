@@ -6,8 +6,8 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="w-64 h-screen bg-gray-100 text-black flex flex-col border-r-2">
-        <div className="bg-gray-100 flex items-center justify-center border-b-2">
+      <div className="w-64 h-screen bg-gray-100/40 text-black flex flex-col border-r-[1px]">
+        <div className="bg-gray-100/40 flex items-center justify-center border-b-[1px]">
           <Camera />
           <h1 className="text-xl font-bold p-[0.87rem]">Digikinz.co</h1>
         </div>
